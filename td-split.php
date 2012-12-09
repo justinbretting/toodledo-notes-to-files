@@ -9,7 +9,7 @@ $toodledo_file = 'td_notes.csv';
 $export_root = '/Library/WebServer/Documents/misc/toodledo/';
 
 // create an array of lines from the export file
-$lines = file($file);
+$lines = file($toodledo_file);
 
 // set the extension you want for exported files
 // Elements uses .md, but feel free to use .txt etc
@@ -32,7 +32,7 @@ for ($i = 1; $i < count($lines); ) {
 		}
 
 		// determine which directory to output the file and create it if it doesn't already exist
-		$dir = $matches[2] ? $root . $matches[2] . "/" : $root;
+		$dir = $matches[2] ? $export_root . $matches[2] . "/" : $export_root;
 		if ( !file_exists( $dir ) ) {
 			mkdir( $dir );
 		}
